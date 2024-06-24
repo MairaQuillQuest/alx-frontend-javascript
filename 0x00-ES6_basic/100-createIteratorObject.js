@@ -1,12 +1,8 @@
 /* eslint-disable */
 export default function createIteratorObject(report) {
   let allEmployees = [];
-  for (const item of Object.values(report.allEmployees)) {
-    allEmployees = [
-      ...allEmployees,
-      ...item,
-    ];
+  for (const employees of Object.values(report.allEmployees)) {
+    allEmployees = [...allEmployees, ...employees];
   }
-  
-  return allEmployees;
+  return allEmployees[Symbol.iterator]();
 }
